@@ -1,0 +1,601 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* WELCOME PAGE */
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #121212;
+  padding: 2rem;
+  text-align: center;
+}
+
+.welcome-content {
+  max-width: 700px;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: #a78bfa;
+}
+
+.welcome-subtitle {
+  font-size: 1rem;
+  color: #d4d4d4;
+  margin-bottom: 2rem;
+}
+
+.welcome-instruction {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #b0b0b0;
+}
+
+.welcome-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background-color: #7c3aed;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #4c1d95;
+}
+
+/* LOGIN / FORGOT / VERIFY CODE */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding: 2rem;
+}
+
+.login-box {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* TITLES & TEXT */
+.login-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  text-align: left;
+  color: #333;
+}
+
+.login-subtext {
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* FORM INPUTS */
+.login-label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* PASSWORD VISIBILITY */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0;
+}
+
+/* REMEMBER ME */
+.remember-me {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.checkbox-black {
+  accent-color: black;
+  width: 16px;
+  height: 16px;
+}
+
+.remember-label {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* BUTTONS */
+.btn-login {
+  width: 100%;
+  background-color: #7c3aed;
+  color: white;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 999px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-login:hover {
+  background-color: #4c1d95;
+}
+
+/* MISC LINKS */
+.login-links {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link-underline {
+  text-decoration: underline;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* BACK BUTTON */
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Resend Text */
+.resend-text {
+  color: #555;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+}
+
+/* Resend Link */
+.resend-link {
+  color: #f43f5e;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dashboard-container {
+  display: flex;
+  background-color: #1e1e2f;
+  color: #fff;
+}
+
+.dashboard-sidebar {
+  width: 220px;
+  background-color: #15151f;
+  padding: 2rem 1rem;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.sidebar-nav li:hover {
+  color: #fff;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #2b2c3e;
+  position: relative;
+  min-height: 100vh; 
+  overflow-y: auto;   
+  box-sizing: border-box; 
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-logout {
+  background-color: #7c3aed;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-logout:hover {
+  background-color: #5b21b6;
+}
+
+.dashboard-welcome {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.dashboard-welcome h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.dashboard-welcome .highlight {
+  color: #fff;
+}
+
+.dashboard-welcome p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ddd;
+  margin-top: 0.5rem;
+}
+
+.feature-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: white;
+  color: #333;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card img {
+  width: 48px;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* Kontainer utama profil */
+.profile-container {
+  padding: 2rem;
+  background: #f8f9fb;
+  min-height: 100vh;
+}
+
+/* Header profil */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Kartu profil */
+.profile-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Header kartu profil */
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.profile-email {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.edit-button {
+  background: #6a3dff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.edit-button:hover {
+  background: #582fd0;
+}
+
+/* Form */
+.profile-form {
+  margin-top: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+  background: #f2f2f2;
+  color: #666;
+}
+
+/* Email Section */
+.email-section {
+  margin-top: 2rem;
+}
+
+.email-section h4 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.email-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f0f4ff;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #333;
+}
+
+.email-icon {
+  font-size: 1.5rem;
+  color: #4285f4;
+}
+
+.email-address {
+  font-weight: 500;
+}
+
+.email-date {
+  font-size: 0.9rem;
+  color: #777;
+}
+.edit-profile-container {
+  padding: 2rem;
+  background: #f8f9fb;
+  min-height: 100vh;
+}
+
+.edit-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edit-profile-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.edit-profile-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+}
+
+.email-disabled input {
+  background: #f2f2f2;
+  color: #777;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.save-button {
+  background: #6a3dff;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.save-button:hover {
+  background: #582fd0;
+}
