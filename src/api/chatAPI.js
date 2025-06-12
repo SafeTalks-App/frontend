@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://backend-production-f1ca.up.railway.app/api/chats';
+const API_URL = 'https://be-safetalks.up.railway.app/api/chats';
 
 export const fetchChats = async () => {
   const res = await axios.get(API_URL);
