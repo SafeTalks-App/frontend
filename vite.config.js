@@ -4,6 +4,17 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/socket.io': {
+        target: 'http://localhost:5050', // arahkan ke port socket.io backend
+        ws: true,
+        changeOrigin: true,
+      }
+    }
   }
 });

@@ -1,19 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/style.css';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaEnvelope } from 'react-icons/fa';
 
 const Profile = () => {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const [userData] = useState({
-    nickname: 'brooo',
-    email: 'brooowww@gmail.com',
-    gender: 'Male',
-    timezone: 'UTC+7',
-    country: 'Indonesia',
-    emailUpdated: '1 month ago',
-  });
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        navigate('/login');
+        return;
+      }
+
+      try {
+        const res = await fetch('http://localhost:5050/api/auth/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!res.ok) {
+          throw new Error('Failed to fetch profile');
+        }
+
+        const data = await res.json();
+        setUserData(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        navigate('/login');
+      }
+    };
+
+    fetchProfile();
+  }, [navigate]);
+
+  if (loading) return <p>Loading...</p>;
+  if (!userData) return <p>Failed to load profile</p>;
 
   return (
     <div className="profile-container">
@@ -32,7 +59,7 @@ const Profile = () => {
               className="profile-avatar"
             />
             <div className="profile-info">
-              <h3 className="profile-name">{userData.nickname}</h3>
+              <h3 className="profile-name">{userData.nickname || userData.name}</h3>
               <p className="profile-email">{userData.email}</p>
             </div>
           </div>
@@ -47,23 +74,23 @@ const Profile = () => {
         <div className="profile-form">
           <div className="form-row">
             <div className="form-group">
-              <label>Nick Name</label>
-              <input type="text" value={userData.nickname} disabled />
+              <label>Nickname</label>
+              <input type="text" value={userData.nickname || ''} disabled />
             </div>
             <div className="form-group">
               <label>Gender</label>
-              <input type="text" value={userData.gender} disabled />
+              <input type="text" value={userData.gender || ''} disabled />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>Time Zone</label>
-              <input type="text" value={userData.timezone} disabled />
+              <input type="text" value={userData.timezone || ''} disabled />
             </div>
             <div className="form-group">
               <label>Country</label>
-              <input type="text" value={userData.country} disabled />
+              <input type="text" value={userData.country || ''} disabled />
             </div>
           </div>
 
@@ -73,7 +100,7 @@ const Profile = () => {
               <FaEnvelope className="email-icon" />
               <div>
                 <p className="email-address">{userData.email}</p>
-                <p className="email-date">{userData.emailUpdated}</p>
+                <p className="email-date">Updated recently</p>
               </div>
             </div>
           </div>

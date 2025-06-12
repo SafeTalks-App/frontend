@@ -30,9 +30,34 @@ const EditProfile = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSave = () => {
-    console.log('Data saved:', formData);
-    navigate('/profile');
+  const handleSave = async () => {
+    const token = localStorage.getItem('token');
+
+    try {
+      const res = await fetch('http://localhost:5050/api/auth/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          nickname: formData.nickname,
+          gender: formData.gender,
+          timezone: formData.timezone,
+          country: formData.country,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to save profile');
+      }
+
+      console.log('Profile updated successfully');
+      navigate('/profile');
+    } catch (error) {
+      console.error('Error saving profile:', error);
+      alert('Failed to save profile. Please try again later.');
+    }
   };
 
   return (
@@ -46,7 +71,7 @@ const EditProfile = () => {
       <div className="edit-profile-form">
         <div className="form-row">
           <div className="form-group">
-            <label>Nick Name</label>
+            <label>Nickname</label>
             <input
               type="text"
               name="nickname"
