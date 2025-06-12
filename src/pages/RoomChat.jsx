@@ -179,8 +179,8 @@ const RoomChat = () => {
 
   const getRepliedMessage = (id) => groupChats.find((msg) => msg.id === id);
   const filteredChats = groupChats.filter((chat) =>
-    filter === 'all' ? true : chat.label === filter
-  );
+    chat.system || filter === 'all' ? true : chat.label === filter
+  );  
 
   return (
     <div className="chat-app">
