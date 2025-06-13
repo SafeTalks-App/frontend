@@ -203,7 +203,7 @@ const RoomChat = () => {
           >
             <option value="all">All</option>
             <option value="Offensive">Offensive</option>
-            <option value="Not Offensive">Not Offensive</option>
+            <option value="Neither">Neither</option>
           </select>
         </div>
       </aside>

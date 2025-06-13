@@ -35,7 +35,7 @@ const Dashboard = () => {
               <FaUser /> Profile
             </li>
             <li onClick={openDiscordBot} title="Invite the SafeTalks bot to your Discord server">
-              <FaDiscord /> OpenAI Discord
+              <FaDiscord /> SafeTalks Discord
             </li>
             <li onClick={() => navigate('/room-chat')}>
               <FaComments /> Room Chat
