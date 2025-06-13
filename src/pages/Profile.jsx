@@ -17,7 +17,7 @@ const Profile = () => {
       }
 
       try {
-        const res = await fetch('http://localhost:5050/api/auth/profile', {
+        const res = await fetch('https://backend-production-6662.up.railway.app/api/auth/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
